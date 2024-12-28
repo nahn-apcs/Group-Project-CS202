@@ -27,11 +27,16 @@ void AudioManagement::loadAudioResources()
 	{
 		std::cout << "Error loading monster hit sound" << std::endl;
 	}
+	if (!monsterRoarSoundBuffer.loadFromFile("../resources/Audio/monster-roar.wav"))
+	{
+		std::cout << "Error loading monster roar sound" << std::endl;
+	}
 
 	coinSound.setBuffer(coinSoundBuffer);
 	jumpSound.setBuffer(jumpSoundBuffer);
 	destroyBlockSound.setBuffer(destroyBlockSoundBuffer);
 	monsterHitSound.setBuffer(monsterHitSoundBuffer);
+	monsterRoarSound.setBuffer(monsterRoarSoundBuffer);
 }
 
 void AudioManagement::playMainMusic()
@@ -91,4 +96,12 @@ void AudioManagement::switchOnOff()
 bool AudioManagement::isOnSound() const
 {
 	return mOnSound;
+}
+
+void AudioManagement::playMonsterRoarSound()
+{
+	monsterRoarSound.setVolume(40);
+	if (mOnSound) {
+		monsterRoarSound.play();
+	}
 }

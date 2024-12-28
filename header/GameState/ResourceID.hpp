@@ -235,6 +235,7 @@ namespace Music
 		WinningTheme,
 		LevelCompleteTheme,
 		GameOverTheme,
+		BossFightTheme,
 	};
 }
 

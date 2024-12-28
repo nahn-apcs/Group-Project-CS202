@@ -8,14 +8,14 @@ Map::Map(const std::string& filePath, int tileSize, std::vector<sf::Texture>& ma
     : tileSize(tileSize)
 {
     audioManager = new AudioManagement();
-    std::cout << "Map constructor called" << std::endl;
+    //std::cout << "Map constructor called" << std::endl;
     coinsNumber = 0;
     monsterNumber = 0;
     score = 0;
     std::ifstream file(filePath);
     std::string line;
     while (std::getline(file, line)) {
-        std::cout << line << std::endl;
+        //std::cout << line << std::endl;
         mapData.push_back(line);
     }
 
@@ -116,7 +116,7 @@ Map::Map(std::vector<std::string>& map, int tileSize, std::vector<sf::Texture>& 
     : tileSize(tileSize)
 {
     audioManager = new AudioManagement();
-    std::cout << "Map constructor called" << std::endl;
+    //std::cout << "Map constructor called" << std::endl;
     coinsNumber = 0;
     monsterNumber = 0;
     score = 0;

@@ -12,11 +12,13 @@ private:
 	sf::SoundBuffer jumpSoundBuffer;
 	sf::SoundBuffer destroyBlockSoundBuffer;
 	sf::SoundBuffer monsterHitSoundBuffer;
+	sf::SoundBuffer monsterRoarSoundBuffer;
 
 	sf::Sound coinSound;
 	sf::Sound jumpSound;
 	sf::Sound destroyBlockSound;
 	sf::Sound monsterHitSound;
+	sf::Sound monsterRoarSound;
 
 	bool mOnSound = 1;
 public:
@@ -31,6 +33,7 @@ public:
 	void playJumpSound();
 	void playDestroyBlockSound();
 	void playMonsterHitSound();
+	void playMonsterRoarSound();
 
 	void stopMainMusic();
 

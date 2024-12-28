@@ -588,7 +588,7 @@ GameState::GameState(StateStack& stack, Context context) : boss(nullptr), State(
 		hurtTextures.push_back(context.textures->get(Textures::SecondWukongHurt2));
 		hurtTextures.push_back(context.textures->get(Textures::SecondWukongHurt3));
 
-		player = new SecondCharacter(idleTextures, runTextures, attackTextures, jumpTextures, hurtTextures, idleTextures, runTextures, idleTextures, runTextures, hurtTextures, deadTextures, 100, 100, 2);
+		player = new SecondCharacter(idleTextures, runTextures, attackTextures, jumpTextures, hurtTextures, idleTextures, runTextures, idleTextures, runTextures, hurtTextures, deadTextures, 200*32, 300, 2);
 
 		break;
 
@@ -770,7 +770,11 @@ bool GameState::update(sf::Time dt) {
 				if (!boss->isActivated()) {
 					sf::Vector2f playerPos = player->getBounds().getPosition();
 					sf::Vector2f bossPos = boss->getPosition();
-					if (abs(playerPos.x - bossPos.x) < 200) boss->activate();
+					if (abs(playerPos.x - bossPos.x) < 200) {
+						boss->activate();
+						this->getContext().music->play(Music::BossFightTheme);
+						this->getContext().audio->playMonsterRoarSound();
+					}
 				}
 				else {
 					boss->interact(deltaTime, gameMap, player->getBounds().getPosition());
@@ -950,6 +954,9 @@ bool GameState::update(sf::Time dt) {
         if (!bossPoint && boss->isDead()) {
                             bossPoint = true;
           gameMap->addConstanScore(10000);
+		  this->getContext().music->play(Music::GameTheme);
+		  this->getContext().audio->playMonsterRoarSound();
+
                           }
       }
 			

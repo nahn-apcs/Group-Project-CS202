@@ -7,6 +7,7 @@ MusicPlayer::MusicPlayer() : mMusic(), mFilenames(), mVolume(100.f) {
 	mFilenames[Music::WinningTheme] = "../resources/Audio/win.wav";
 	mFilenames[Music::LevelCompleteTheme] = "../resources/Audio/victory.wav";
 	mFilenames[Music::GameOverTheme] = "../resources/Audio/game_over.wav";
+	mFilenames[Music::BossFightTheme] = "../resources/Audio/boss-fight.wav";
 }
 
 void MusicPlayer::play(Music::ID theme) {
